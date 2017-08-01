@@ -1,1 +1,3 @@
 # MercBot
+
+Discord Update Test
