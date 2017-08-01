@@ -1,0 +1,20 @@
+{
+  "name": "mercbot",
+  "version": "1.0.0",
+  "description": "Discord bot for Mercs Clan",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Go Away, no tests\" && exit 1",
+    "start": "node app.js"
+  },
+  "keywords": [
+    "discord",
+    "bot"
+  ],
+  "author": "Scott Weaver",
+  "license": "MIT",
+  "dependencies": {
+    "discord.js": "^11.1.0",
+    "mongoose": "^4.11.5"
+  }
+}
