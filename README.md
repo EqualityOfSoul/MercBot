@@ -1,11 +1,5 @@
 # Merc Bot
 
-Two Minute Mobile Quote is a React Native application embedded in the HighwayHero application.
-  - Multi Operator
-  - Multi Vehicle
-  - Multi Vendor
-  - Save Quote
-
 ### Commands
 
 - **stats:** Displays server / bot statistics
