@@ -1,3 +1,2 @@
-# MercBot
-
-Discord Update Test
+# Mercs Bot
+Commands:
