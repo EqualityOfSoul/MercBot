@@ -7,29 +7,35 @@ exports.run = (client, message, args) => {
     if(steamid === ''){
         return message.channel.send("You need a Steam ID.")
     }
-    console.log(steamid);
-    axios({
-        method: "get",
-        url: "https://api.rocketleaguestats.com/v1/player?unique_id="+steamid+"&platform_id=1",
-        headers: {Authorization: config.ROCKETAPIKEY}
-    })
-        .then(function(response) {
-            const embed = new Discord.RichEmbed()
-                .setColor(0x00A2FF)
-                .setTitle("Rocket League Stats For: " + response.data.displayName)
-                .addField("Wins:", response.data.stats.wins, true)
-                .addField("Goals:", response.data.stats.goals, true)
-                .addField("MVPS:", response.data.stats.mvps, true)
-                .addField("Saves:", response.data.stats.saves, true)
-                .addField("Shots:", response.data.stats.shots, true)
-                .addField("Assists:", response.data.stats.assists, true)
-                .setThumbnail(response.data.avatar);
+    message.channel.send("Searching...")
+        .then(message=>{
+            axios({
+                method: "get",
+                url: "https://api.rocketleaguestats.com/v1/player?unique_id="+steamid+"&platform_id=1",
+                headers: {Authorization: config.ROCKETAPIKEY}
+            })
+                .then(function(response) {
+                    const embed = new Discord.RichEmbed()
+                        .setColor(0x00A2FF)
+                        .setTitle("Rocket League Stats For: " + response.data.displayName)
+                        .addField("Wins:", response.data.stats.wins, true)
+                        .addField("Goals:", response.data.stats.goals, true)
+                        .addField("MVPS:", response.data.stats.mvps, true)
+                        .addField("Saves:", response.data.stats.saves, true)
+                        .addField("Shots:", response.data.stats.shots, true)
+                        .addField("Assists:", response.data.stats.assists, true)
+                        .setThumbnail(response.data.avatar);
 
-            return message.channel.send({embed});
+                    return message.edit({embed});
+                })
+                .catch(function(error){
+                    return message.edit(error);
+                })
         })
-        .catch(function(error){
-           return message.channel.send(error);
+        .catch(error =>{
+            message.edit("Could not find Rocket League Stats.")
         })
+
 
 };
 

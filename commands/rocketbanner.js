@@ -8,19 +8,24 @@ exports.run = (client, message, args) => {
         return message.channel.send("You need a Steam ID.")
     }
     console.log(steamid);
-    axios({
-        method: "get",
-        url: "https://api.rocketleaguestats.com/v1/player?unique_id="+steamid+"&platform_id=1",
-        headers: {Authorization: config.ROCKETAPIKEY}
-    })
-        .then(function(response) {
-            let bannerUrl = response.data.signatureUrl;
+    message.channel.send(`Searching...`)
+        .then(message => {
+            axios({
+                method: "get",
+                url: "https://api.rocketleaguestats.com/v1/player?unique_id="+steamid+"&platform_id=1",
+                headers: {Authorization: config.ROCKETAPIKEY}
+            })
+                .then(function(response) {
+                    let bannerUrl = response.data.signatureUrl;
 
-            return message.channel.send({file: bannerUrl});
-        })
-        .catch(function(error){
-            return message.channel.send(error);
-        })
+                    return message.edit({file: bannerUrl});
+                })
+                .catch(function(error){
+                    return message.edit("Failed to find Rocket League Banner");
+                })})
+                .catch(e => {
+                    message.edit(`Failed to find Rocket League Banner`);
+                });
 
 };
 
