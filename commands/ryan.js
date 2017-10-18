@@ -25,6 +25,6 @@ exports.conf = {
 
 exports.help = {
     name: 'ryan',
-    description: 'Ping/Pong command. I wonder what this does? /sarcasm',
+    description: 'Mods',
     usage: 'ryan'
 };
