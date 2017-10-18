@@ -23,3 +23,15 @@
 - **Warn**
 - **Unban**
  
+ 
+### Development Guide
+
+Obtain credentials from myself in order to run this bot locally. 
+
+```sh
+$ yarn install
+$ node app.js
+```
+
+Before any commits, please run
+```npm test```. This will be ran as part of the production deployment pipeline
