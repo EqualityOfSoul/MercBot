@@ -4,7 +4,7 @@
   "description": "Mercs Clan",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "eslint *.js, ./**/*.js"
   },
   "author": "UnMonk",
   "license": "MIT",
@@ -17,5 +17,8 @@
     "ms": "^0.7.3",
     "steamid": "^1.1.0",
     "steamrep": "^1.0.1"
+  },
+  "devDependencies": {
+    "eslint": "^4.9.0"
   }
 }

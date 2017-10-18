@@ -4,7 +4,7 @@ exports.run = (client, message, args, level) => { // eslint-disable-line no-unus
 • Commander :: Akilestar
 • Div Commander :: UNWeaponsInspector
 • Div Commander :: Jimbo
-• Lieutenant   :: SeppukuNinja`)
+• Lieutenant   :: SeppukuNinja`);
 };
 
 exports.conf = {

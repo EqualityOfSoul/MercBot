@@ -1,11 +1,10 @@
 const axios = require('axios');
-const Discord = require('discord.js');
 const config = require('../settings.json');
 
 exports.run = (client, message, args) => {
     const steamid = args.splice(0, args.length).join(' ');
     if(steamid === null){
-        return message.channel.send("You need a Steam ID.")
+        return message.channel.send("You need a Steam ID.");
     }
     console.log(steamid);
     message.channel.send(`Searching...`)
@@ -16,14 +15,14 @@ exports.run = (client, message, args) => {
                 headers: {Authorization: config.ROCKETAPIKEY}
             })
                 .then(function(response) {
-                    let bannerUrl = response.data.signatureUrl;
+                    const bannerUrl = response.data.signatureUrl;
 
                     return message.edit({file: bannerUrl});
                 })
-                .catch(function(error){
+                .catch(() =>{
                     return message.edit("Failed to find Rocket League Banner");
-                })})
-                .catch(e => {
+                });})
+                .catch(() => {
                     message.edit(`Failed to find Rocket League Banner`);
                 });
 

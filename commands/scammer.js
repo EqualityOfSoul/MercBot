@@ -1,15 +1,19 @@
 const SteamRepAPI = require('steamrep');
+const axios = require('axios');
+const config = require('../settings.json');
+const SteamID = require('steamid');
 
 exports.run = (client, message, args) => {
+    let steamID64;
 
     let steamIDString = args.splice(0, args.length).join(' ');
     if(steamIDString === ''){
-        return message.channel.send("You need a Steam ID or URL.")
+        return message.channel.send("You need a Steam ID or URL.");
     }
 
     if(/(?:https?:\/\/)?steamcommunity\.com\/(?:profiles|id)\/[a-zA-Z0-9]+/.test(steamIDString) === true) {
-        let regexp = /(?:https?:\/\/)?(?:steamcommunity\.com\/)(?:profiles|id)\/([a-zA-Z0-9]+)/g;
-        let match = regexp.exec(steamIDString);
+        const regexp = /(?:https?:\/\/)?(?:steamcommunity\.com\/)(?:profiles|id)\/([a-zA-Z0-9]+)/g;
+        const match = regexp.exec(steamIDString);
         steamIDString = match[1];
     }
     const STEAMAPIKEY = config.STEAMAPIKEY;
@@ -45,8 +49,8 @@ exports.run = (client, message, args) => {
                 console.log("SUCCESS: Got SteamID " + steamID64);
             }
             // else check if ID is SteamID2 or SteamID3, convert it to SteamID64
-            else if((matches = steamIDString.match(/^STEAM_([0-5]):([0-1]):([0-9]+)$/)) || (matches = steamIDString.match(/^\[([a-zA-Z]):([0-5]):([0-9]+)(:[0-9]+)?\]$/))){
-                let SteamID3 = new SteamID(steamIDString);
+            else if((matches = steamIDString.match(/^STEAM_([0-5]):([0-1]):([0-9]+)$/)) || (matches = steamIDString.match(/^\[([a-zA-Z]):([0-5]):([0-9]+)(:[0-9]+)?\]$/))){ // eslint-disable-line no-undef
+                const SteamID3 = new SteamID(steamIDString);
                 steamID64 = SteamID3.getSteamID64();
                 console.log("SUCCESS: Got SteamID " + steamID64);
             }
@@ -54,7 +58,6 @@ exports.run = (client, message, args) => {
                 message.channel.send("Couldn't find a account with the SteamID **" + steamIDString + "**. \nDid you check if the SteamID is correct?");
                 console.error("ERROR: Could not get SteamID from string:");
                 console.error(steamIDString);
-                steamID64 = null;
             }
             return steamID64;
         })
@@ -70,12 +73,12 @@ exports.run = (client, message, args) => {
                         message.channel.send("This user is a SCAMMER!");
                     }
                     else{
-                        message.channel.send("This user is not a scammer.")
+                        message.channel.send("This user is not a scammer.");
                     }
                 });
 
 
             }
-        })
+        });
 
 };

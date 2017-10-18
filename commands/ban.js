@@ -1,8 +1,8 @@
 const Discord = require('discord.js');
 exports.run = (client, message, args) => {
-  let reason = args.slice(1).join(' ');
-  let user = message.mentions.users.first();
-  let modlog = client.channels.find('name', 'mod-log');
+  const reason = args.slice(1).join(' ');
+  const user = message.mentions.users.first();
+  const modlog = client.channels.find('name', 'mod-log');
   if (!modlog) return message.reply('I cannot find a mod-log channel');
   if (reason.length < 1) return message.reply('You must supply a reason for the ban.');
   if (message.mentions.users.size < 1) return message.reply('You must mention someone to ban them.').catch(console.error);

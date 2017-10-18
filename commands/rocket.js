@@ -5,7 +5,7 @@ const config = require("../settings.json");
 exports.run = (client, message, args) => {
     const steamid = args.splice(0, args.length).join(' ');
     if(steamid === ''){
-        return message.channel.send("You need a Steam ID.")
+        return message.channel.send("You need a Steam ID.");
     }
     message.channel.send("Searching...")
         .then(message=>{
@@ -30,11 +30,11 @@ exports.run = (client, message, args) => {
                 })
                 .catch(function(error){
                     return message.edit(error);
-                })
+                });
         })
-        .catch(error =>{
-            message.edit("Could not find Rocket League Stats.")
-        })
+        .catch( () =>{
+            message.edit("Could not find Rocket League Stats.");
+        });
 
 
 };
