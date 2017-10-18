@@ -27,6 +27,15 @@
 ### Development Guide
 
 Obtain credentials from myself in order to run this bot locally. 
+Or create your own settings.json with the following values:
+
+- ownerid
+- adminrolename
+- modrolename
+- STEAMAPIKEY
+- ROCKETAPIKEY
+
+To start the application:
 
 ```sh
 $ yarn install
