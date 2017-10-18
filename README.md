@@ -6,6 +6,7 @@
 - **Ping:** Check if bot is online
 - **Help:** Displays information about commands
 - **Staff:** Displays server commanders
+- **Scammer:** Checks SteamRep.com for reputation (!scammer <steamid>)
 - **Steam:** Displays Steam information (!steam <user or steamid>)
 - **Steamid:** Get steamid from a search (!steamid <name or url>)
 - **Rocket:** Gets Rocket League Stats from steamid (!rocket <steamid>)
