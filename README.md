@@ -1,5 +1,7 @@
 # Merc Bot
 
+[![Build Status](https://travis-ci.org/unmonk/MercBot.svg?branch=master)](https://travis-ci.org/unmonk/MercBot)
+
 ### Commands
 
 - **stats:** Displays server / bot statistics
