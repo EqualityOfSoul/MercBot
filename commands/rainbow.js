@@ -1,7 +1,5 @@
-const axios = require('axios');
 const Discord = require('discord.js');
 const rainbow = require('rainbowsix-api-node');
-const config = require("../settings.json");
 
 exports.run = (client, message, args) => {
     const r6api = new rainbow();
@@ -30,11 +28,11 @@ exports.run = (client, message, args) => {
                 })
                 .catch(()=>{
                     return message.edit("Something went wrong.");
-                })
+                });
         })
         .catch(()=>{
             return message.edit("Something went wrong.");
-        })
+        });
 
 };
 
