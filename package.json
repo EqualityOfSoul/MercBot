@@ -13,7 +13,7 @@
     "chalk": "^1.1.3",
     "discord.js": "^11.1.0",
     "luxon": "^0.1.0",
-    "moment": "^2.19.1",
+    "moment": "^2.19.3",
     "moment-duration-format": "^1.3.0",
     "ms": "^0.7.3",
     "rainbowsix-api-node": "0.0.1",
